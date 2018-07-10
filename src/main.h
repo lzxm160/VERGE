@@ -169,7 +169,7 @@ inline int GetAlgo(int nVersion)
 {
 printf("getalgo:%02x\n",nVersion);
 printf("getalgo:%02x\n",nVersion & (nBestHeight >= 380000 ? BLOCK_VERSION_ALGO : BLOCK_VERSION_ALGO_BROKEN));
-    switch (nVersion & (nBestHeight >= 380000 ? BLOCK_VERSION_ALGO : BLOCK_VERSION_ALGO_BROKEN))
+    switch (nVersion & (BLOCK_VERSION_ALGO ))
     {
         case BLOCK_VERSION_SCRYPT:
 printf("BLOCK_VERSION_SCRYPT\n");
