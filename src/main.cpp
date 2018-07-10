@@ -2390,6 +2390,8 @@ bool CBlock::AcceptBlock()
 
     // Enforce rule that the coinbase starts with serialized block height
     CScript expect = CScript() << nHeight;
+    printf("coinbase nHeight:%02x\n",nHeight);
+    printf("coinbase submit:%02x\n",*(vtx[0].vin[0].scriptSig.begin()));
     if (!std::equal(expect.begin(), expect.end(), vtx[0].vin[0].scriptSig.begin()))
         return DoS(100, error("AcceptBlock() : block height mismatch in coinbase"));
 
