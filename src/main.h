@@ -167,17 +167,24 @@ enum
 
 inline int GetAlgo(int nVersion)
 {
+printf("getalgo:%02x\n",nVersion);
+printf("getalgo:%02x\n",nVersion & (nBestHeight >= 380000 ? BLOCK_VERSION_ALGO : BLOCK_VERSION_ALGO_BROKEN));
     switch (nVersion & (nBestHeight >= 380000 ? BLOCK_VERSION_ALGO : BLOCK_VERSION_ALGO_BROKEN))
     {
         case BLOCK_VERSION_SCRYPT:
+printf("BLOCK_VERSION_SCRYPT\n");
             return ALGO_SCRYPT;
         case BLOCK_VERSION_GROESTL:
+printf("BLOCK_VERSION_GROESTL\n");
             return ALGO_GROESTL;
         case BLOCK_VERSION_LYRA2RE:
+printf("BLOCK_VERSION_LYRA2RE\n");
             return ALGO_LYRA2RE;
 	case BLOCK_VERSION_X17:
+printf("BLOCK_VERSION_X17\n");
 	    return ALGO_X17;
 	case BLOCK_VERSION_BLAKE:
+printf("BLOCK_VERSION_BLAKE\n");
 	    return ALGO_BLAKE;
     }
     return ALGO_SCRYPT;

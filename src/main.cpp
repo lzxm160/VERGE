@@ -1288,6 +1288,8 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, int algo)
 {
     CBigNum bnTarget, limit = bnProofOfWorkLimit[algo];
     bnTarget.SetCompact(nBits);
+    printf("nbits:%d\n",nBits);
+    printf("bntarget:%s\n",bnTarget.ToString(16).c_str());
 
     // Check range
     if (bnTarget <= 0 || bnTarget > limit) {
@@ -1295,6 +1297,8 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, int algo)
         return error("CheckProofOfWork() : nBits below minimum work");
     }
 
+    printf("hash:%s\n",hash.GetHex().c_str());
+    printf("bntarget:%s\n",bnTarget.getuint256().GetHex().c_str());
     // Check proof of work matches claimed amount
     if (hash > bnTarget.getuint256() && hash != hashGenesisBlockTestNet)
         return error("CheckProofOfWork() : hash doesn't match nBits");
@@ -2222,6 +2226,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
         return DoS(100, error("CheckBlock() : size limits failed"));
 
     // Check proof of work matches claimed amount
+printf("tm:%s\n",GetPoWHash(GetAlgo()).GetHex().c_str());
     if (fCheckPOW && IsProofOfWork() && !CheckProofOfWork(GetPoWHash(GetAlgo()), nBits, GetAlgo()))
         return DoS(50, error("CheckBlock() : proof of work failed"));
 

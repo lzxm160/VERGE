@@ -386,6 +386,7 @@ bool AppInit2()
 
     // determine mining Algo
     std::string strAlgo = GetArg("-algo", "scrypt");
+printf("stralgo:%s\n",strAlgo.c_str());
     transform(strAlgo.begin(),strAlgo.end(),strAlgo.begin(),::tolower);
     if (strAlgo == "scrypt")
         miningAlgo = ALGO_SCRYPT;
@@ -396,8 +397,10 @@ bool AppInit2()
     else if (strAlgo == "lyra" || strAlgo == "lyra2re" || strAlgo == "lyra2re" || strAlgo == "lyra2" || strAlgo == "lyra2rev2")
 	miningAlgo = ALGO_LYRA2RE;
     else if (strAlgo == "blake")
+{
+	printf("miningAlgo is blake\n");
 	miningAlgo = ALGO_BLAKE;
-
+}
     bnProofOfWorkLimit[ALGO_SCRYPT]  = CBigNum(~uint256(0) >> 20);
     bnProofOfWorkLimit[ALGO_GROESTL] = CBigNum(~uint256(0) >> 20);
     bnProofOfWorkLimit[ALGO_X17]     = CBigNum(~uint256(0) >> 20);

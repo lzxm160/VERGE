@@ -534,6 +534,12 @@ Value submitblock(const Array& params, bool fHelp)
     CBlock block;
     try {
         ssBlock >> block;
+printf("nVersion:%02x\n",block.nVersion);
+        printf("hashPrevBlock:%s\n",block.hashPrevBlock.GetHex().c_str());
+        printf("hashMerkleRoot:%s\n",block.hashMerkleRoot.GetHex().c_str());
+        printf("nTime:%02x\n",block.nTime);
+        printf("nBits:%02x\n",block.nBits);
+        printf("nNonce:%02x\n",block.nNonce);
     }
     catch (std::exception &e) {
         throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Block decode failed");

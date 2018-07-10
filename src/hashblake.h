@@ -16,6 +16,7 @@
 template<typename T1>
 inline uint256 HashBlake(const T1 pbegin, const T1 pend)
 {
+printf("hashblake\n");
     static unsigned char pblank[1];
     uint256 hash1;
     blake2s_state S[1];
