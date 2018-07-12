@@ -35,7 +35,7 @@ class CNode;
 
 
 
-static const int MULTI_ALGO_SWITCH_BLOCK = 490;
+static const int MULTI_ALGO_SWITCH_BLOCK = 500;
 static const int STEALTH_TX_SWITCH_BLOCK = 510;
 static const int ALGO_RULES_SWITCH_BLOCK = 530;
 static const int SAME_ALGO_MAX_COUNT = 5;
