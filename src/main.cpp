@@ -2312,8 +2312,8 @@ bool CBlock::CheckPrevAlgo(CBlockIndex* pIndex)
         pIndex = pIndex->pprev;
     }
 
-    if (sameAlgoBlocks > SAME_ALGO_MAX_COUNT)
-        return false;
+    // if (sameAlgoBlocks > SAME_ALGO_MAX_COUNT)
+    //     return false;
 
     return true;
 }
